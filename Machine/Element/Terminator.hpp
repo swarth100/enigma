@@ -7,9 +7,11 @@
 
 class Terminator: public Element{
 public:
-    Terminator();
+    Terminator(shared_ptr<Instance>);
 
-    int pass();
+    int pass(int);
+
+    int getInstance(int);
 };
 
 #endif

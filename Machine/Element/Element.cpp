@@ -1,6 +1,6 @@
 #include "Element.hpp"
 
-Element::Element(Instance Instance) {
+Element::Element(shared_ptr<Instance> instance) {
     this->instance = instance;
 }
 

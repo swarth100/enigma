@@ -10,6 +10,7 @@ public:
 
     void changeVerse();
     Status getVerse();
+
 private:
     Status verse;
 };

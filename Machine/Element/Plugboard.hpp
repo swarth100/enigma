@@ -8,13 +8,15 @@
 
 class Plugboard: public Element{
 public:
-    Plugboard(Instance);
+    Plugboard(shared_ptr<Instance>);
 
-    int getInstance();
+    int getInstance(int);
+
+    void setMap(vector<int>);
 
 private:
-    Mapper map;
-    Instance instance;
+    shared_ptr<Mapper> map;
+    shared_ptr<Instance> instance;
 };
 
 #endif

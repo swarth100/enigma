@@ -6,7 +6,7 @@
 
 class Element {
 public:
-    Element(Instance);
+    Element(shared_ptr<Instance>);
     shared_ptr<Element> forward();
 
     int pass(int);
@@ -16,7 +16,7 @@ public:
 
 private:
     shared_ptr<Element> next;
-    Instance instance;
+    shared_ptr<Instance> instance;
 };
 
 #endif

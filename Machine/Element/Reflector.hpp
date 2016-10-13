@@ -8,15 +8,15 @@
 
 class Reflector: public Element{
 public:
-    Reflector(Instance);
+    Reflector(shared_ptr<Instance>);
 
-    int getInstance();
+    int getInstance(int);
 
     void changeVerse();
 
 private:
-    Mapper map;
-    Instance instance;
+    shared_ptr<Mapper> map;
+    shared_ptr<Instance> instance;
 };
 
 #endif

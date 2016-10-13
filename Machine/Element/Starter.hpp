@@ -7,9 +7,11 @@
 
 class Starter: public Element{
 public:
-    Starter();
+    Starter(shared_ptr<Instance>);
 
-    int pass();
+    int pass(int);
+
+    int getInstance(int);
 };
 
 #endif

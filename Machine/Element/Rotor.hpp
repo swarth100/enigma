@@ -8,13 +8,20 @@
 
 class Rotor: public Element{
 public:
-    Rotor(Instance);
+    Rotor(shared_ptr<Instance>);
 
-    int getInstance();
+    int getInstance(int);
+
+    void setMap(vector<int>);
+
+    void setNextRotor(shared_ptr<Rotor>);
+    shared_ptr<Rotor> getNextRotor();
 
 private:
-    Mapper map;
-    Instance instance;
+    shared_ptr<Mapper> mapForward;
+    shared_ptr<Mapper> mapBackward;
+    shared_ptr<Instance> instance;
+    shared_ptr<Rotor> nextRotor;
 };
 
 #endif

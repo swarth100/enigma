@@ -8,8 +8,10 @@ public:
     Mapper();
     int getMappedInt(int);
 
-    void populateRotor (vector<int>);
-    void populatePlugboard (vector<int>);
+    void populateForwardRotor(vector<int>);
+    void populateBackwardRotor(vector<int>);
+    void populatePlugboard(vector<int>);
+    void populateReflector();
 
 private:
     int const MAX_ALPHABET = 26;
