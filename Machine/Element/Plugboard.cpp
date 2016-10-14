@@ -12,3 +12,7 @@ int Plugboard::getInstance(int x) {
 void Plugboard::setMap(vector<int> vector) {
     map->populatePlugboard(vector);
 }
+
+void Plugboard::printname() {
+    cout << "Plugboard" << endl;
+}

@@ -14,3 +14,7 @@ int Reflector::getInstance(int x) {
 void Reflector::changeVerse() {
     this->instance->changeVerse();
 }
+
+void Reflector::printname() {
+    cout << "Reflector" << endl;
+}

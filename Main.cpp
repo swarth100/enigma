@@ -1,12 +1,28 @@
 #include "Util.h"
 
+#include "Machine/Machine.hpp"
+
 using namespace std;
 
 int main(int argc, char **argv)
 {
-  cout << "TODO: implement an Enigma machine" << endl;
+    cout << "C++ Enigma Machine" << endl;
 
-  //std::shared_ptr<int> pointer(new int);
+    shared_ptr<Machine> enigma = make_shared<Machine>();
 
-  return 0;
+    int input;
+    int result;
+
+    cout << "Input: " << endl;
+    cin >> input;
+
+    enigma->addPlugboard(parse("plugboards/V.pb"));
+
+    enigma->assemble();
+
+    result = enigma->simulate(input);
+
+    cout << "Result: " << result << endl;
+
+    return 0;
 }

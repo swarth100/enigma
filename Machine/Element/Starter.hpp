@@ -9,9 +9,9 @@ class Starter: public Element{
 public:
     Starter(shared_ptr<Instance>);
 
-    int pass(int);
-
     int getInstance(int);
+
+    void printname();
 };
 
 #endif

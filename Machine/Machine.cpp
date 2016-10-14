@@ -4,10 +4,15 @@ Machine::Machine() {
     this->instance = make_shared<Instance>();
     this->starter = make_shared<Starter>(instance);
     this->current = starter;
+
+    this->rotorChain = make_shared<Rotor>(instance);
+    this->lastRotor = rotorChain;
 }
 
 int Machine::simulate(int x) {
-    return starter->pass(x);
+    int result = starter->pass(x);
+    rotate();
+    return result;
 }
 
 void Machine::addRotor(vector<int> vector) {
@@ -18,6 +23,8 @@ void Machine::addRotor(vector<int> vector) {
     shared_ptr<Element> element = rotor;
 
     addElement(element);
+
+
 }
 
 void Machine::addPlugboard(vector<int> vector) {
@@ -32,27 +39,45 @@ void Machine::addPlugboard(vector<int> vector) {
 
 void Machine::addElement(shared_ptr<Element> element) {
     stack.push(element);
-    addToCurrent(element);
+    addToNext(element);
 }
 
-void Machine::addToCurrent(shared_ptr<Element> element) {
+void Machine::addToNext(shared_ptr<Element> element) {
     current->setNext(element);
     current = element;
 }
 
+void Machine::addToPrevious(shared_ptr<Element> element) {
+    current->setPrevious(element);
+    current = element;
+}
+
+void Machine::addToRotors(shared_ptr<Rotor> rotor) {
+    lastRotor->setNextRotor(rotor);
+    current = rotor;
+}
+
 void Machine::assemble() {
     shared_ptr<Element> reflector = make_shared<Reflector>(instance);
-    addToCurrent(reflector);
 
-    //Possible cause of Rotor Chain errors:
-    rotorChain = make_shared<Rotor>(instance);
+    shared_ptr<Element> tmp = current;
+    addToNext(reflector);
+    addToNext(tmp);
 
     while (!stack.empty()) {
         shared_ptr<Element> top = stack.top();
-        addToCurrent(top);
+        addToPrevious(top);
         stack.pop();
+    }
 
-        //Add enum to all classes
-        //Return that enum and check
+    shared_ptr<Element> terminator = make_shared<Terminator>(instance);
+    addToPrevious(terminator);
+}
+
+void Machine::rotate() {
+    shared_ptr<Rotor> tmp = rotorChain->getNextRotor();
+
+    while (tmp != NULL && tmp->rotate()) {
+        tmp = tmp->getNextRotor();
     }
 }

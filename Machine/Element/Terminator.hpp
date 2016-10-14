@@ -12,6 +12,8 @@ public:
     int pass(int);
 
     int getInstance(int);
+
+    void printname();
 };
 
 #endif

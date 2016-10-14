@@ -9,13 +9,17 @@ public:
     Element(shared_ptr<Instance>);
     shared_ptr<Element> forward();
 
-    int pass(int);
-    virtual int getInstance(int)=0;
+    virtual int pass(int);
+    virtual int getInstance(int) = 0;
 
     void setNext(shared_ptr<Element>);
+    void setPrevious(shared_ptr<Element>);
+
+    virtual void printname() = 0;
 
 private:
     shared_ptr<Element> next;
+    shared_ptr<Element> previous;
     shared_ptr<Instance> instance;
 };
 

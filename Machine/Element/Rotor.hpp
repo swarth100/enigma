@@ -14,14 +14,20 @@ public:
 
     void setMap(vector<int>);
 
+    void printname();
+
     void setNextRotor(shared_ptr<Rotor>);
     shared_ptr<Rotor> getNextRotor();
+
+    bool rotate();
 
 private:
     shared_ptr<Mapper> mapForward;
     shared_ptr<Mapper> mapBackward;
     shared_ptr<Instance> instance;
     shared_ptr<Rotor> nextRotor;
+
+    int rotation;
 };
 
 #endif

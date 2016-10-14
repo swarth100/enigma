@@ -14,6 +14,8 @@ public:
 
     void changeVerse();
 
+    void printname();
+
 private:
     shared_ptr<Mapper> map;
     shared_ptr<Instance> instance;
