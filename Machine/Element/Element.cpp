@@ -22,8 +22,8 @@ void Element::setPrevious(shared_ptr<Element> element) {
 }
 
 int Element::pass(int x) {
-    cout << "- - - - -" << endl;
-    printname();
+    //cout << "- - - - -" << endl;
+    //printname();
     /*if (next != NULL) {
         cout << "Next: ";
         next->printname();
@@ -33,6 +33,6 @@ int Element::pass(int x) {
         previous->printname();
     }*/
 
-    cout << "Value: " << x << endl;
+    //cout << "Value: " << x << endl;
     return forward()->pass(this->getInstance(x));
 }

@@ -14,6 +14,10 @@ vector<int> parse(string path) {
     const char* filePath = path.c_str();
     ifstream inStream(filePath);
 
+    if (inStream.fail()) {
+        exit (1);
+    }
+
     //Save standard input
     streambuf *cinBuffer = cin.rdbuf();
     cin.rdbuf(inStream.rdbuf());
@@ -26,24 +30,28 @@ vector<int> parse(string path) {
     int intIn;
 
     getline(cin, str);
-    cout << "- - - - -" << endl;
-    cout << str << endl;
+
+    str += " ";
+    //cout << "- - - - -" << endl;
+    //cout << str << endl;
 
     while ((pos = str.find(delimiter)) != string::npos) {
         token = str.substr(0, pos);
+
+        if (token.empty()) {
+            break;
+        }
 
         intIn = stoi(token);
         result.push_back(intIn);
 
         str.erase(0, pos + delimiter.length());
     }
-    intIn = stoi(str);
-    result.push_back(intIn);
 
     //Reset to standard Input
     cin.rdbuf(cinBuffer);
 
-    cout << "- - - - -" << endl;
+    //cout << "- - - - -" << endl;
 
     return result;
 }

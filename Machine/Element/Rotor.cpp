@@ -14,7 +14,7 @@ void Rotor::setMap(vector<int> vector) {
 }
 
 int Rotor::getInstance(int x) {
-    cout << "Rotation: " << rotation << endl;
+    //cout << "Rotation: " << rotation << endl;
     if (instance->getVerse() == Instance::Status::FORWARD) {
         return mapForward->getMappedIntRot(x, rotation);
     } else {

@@ -6,20 +6,27 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    cout << "C++ Enigma Machine" << endl;
+    //cout << "C++ Enigma Machine" << endl;
 
     shared_ptr<Machine> enigma = make_shared<Machine>();
 
-    char* input = (char*) malloc(sizeof(char));
-    char* output = (char*) malloc(sizeof(char));
+    string input = "";
+    string output;
 
-    cout << "Input: " << endl;
+    //cout << "Input: " << endl;
     cin >> input;
 
-    strcpy(output, input);
+    output = input;
 
-    //enigma->addPlugboard(parse("plugboards/V.pb"));
-    enigma->addRotor(parse("rotors/II.rot"));
+    int argInt = 1;
+    int maxArgc = argc-1;
+
+    enigma->addPlugboard(parse(argv[maxArgc]));
+
+    while (argInt < maxArgc) {
+        enigma->addRotor(parse(argv[argInt]));
+        argInt ++;
+    }
 
     enigma->assemble();
 
@@ -27,15 +34,12 @@ int main(int argc, char **argv)
     int index = 0;
 
     while(input[index] != '\0') {
-        decIn = input[index] - 'a';
-        output[index] = (enigma->simulate(decIn) + 'a');
+        decIn = input[index] - 'A';
+        output[index] = (enigma->simulate(decIn) + 'A');
         index++;
     }
 
-    cout << "Result: " << output << endl;
-
-    free (input);
-    free (output);
+    cout << output << endl;
 
     return 0;
 }

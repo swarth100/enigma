@@ -20,20 +20,20 @@ void Mapper::populateForwardRotor(vector<int> vector) {
     for (int i = 0; i < MAX_ALPHABET; i ++) {
         mapping[vector[i]] = mod((vector[vector[i]] - vector[i]), MAX_ALPHABET);
     }
-    for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
+    /*for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
         cout << mapping[i] << " ";
     }
-    cout << endl;
+    cout << endl;*/
 }
 
 void Mapper::populateBackwardRotor(vector<int> vector) {
     for (int i = 0; i < MAX_ALPHABET; i ++) {
-        mapping[i] = mod((vector[i] - vector[vector[i]]), MAX_ALPHABET);
+        mapping[vector[vector[i]]] = mod((vector[i] - vector[vector[i]]), MAX_ALPHABET);
     }
-    for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
+    /*for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
         cout << mapping[i] << " ";
     }
-    cout << endl;
+    cout << endl;*/
 }
 
 void Mapper::populatePlugboard(vector<int> vector) {
@@ -41,10 +41,10 @@ void Mapper::populatePlugboard(vector<int> vector) {
         mapping[vector[i]] = mod((vector[i+1] - vector[i]), MAX_ALPHABET);
         mapping[vector[i+1]] = mod((vector[i] - vector[i+1]), MAX_ALPHABET);
     }
-    for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
+    /*for (int i = 0; i < (int) MAX_ALPHABET; i ++) {
         cout << mapping[i] << " ";
     }
-    cout << endl;
+    cout << endl;*/
 }
 
 void Mapper::populateReflector() {

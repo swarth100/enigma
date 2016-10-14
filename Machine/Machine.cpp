@@ -54,6 +54,7 @@ void Machine::addToPrevious(shared_ptr<Element> element) {
 
 void Machine::addToRotors(shared_ptr<Rotor> rotor) {
     lastRotor->setNextRotor(rotor);
+    lastRotor = rotor;
     current = rotor;
 }
 
@@ -78,6 +79,7 @@ void Machine::rotate() {
     shared_ptr<Rotor> tmp = rotorChain->getNextRotor();
 
     while (tmp != NULL && tmp->rotate()) {
+        //cout << "Rotate LOOP" << endl;
         tmp = tmp->getNextRotor();
     }
 }
