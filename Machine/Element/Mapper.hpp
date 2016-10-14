@@ -7,6 +7,7 @@ class Mapper{
 public:
     Mapper();
     int getMappedInt(int);
+    int getMappedIntRot(int, int);
 
     void populateForwardRotor(vector<int>);
     void populateBackwardRotor(vector<int>);

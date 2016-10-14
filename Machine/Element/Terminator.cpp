@@ -1,12 +1,14 @@
 #include "Terminator.hpp"
 
 Terminator::Terminator(shared_ptr<Instance> instance): Element(instance) {
-    //Hey! What a nice terminator!
+    this->instance = instance;
 }
 
 int Terminator::pass(int x){
     cout << "- - - - -" << endl;
     printname();
+    instance->changeVerse();
+    cout << "Value: " << x << endl;
     return x;
 }
 

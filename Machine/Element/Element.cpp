@@ -31,10 +31,8 @@ int Element::pass(int x) {
     if (previous != NULL) {
         cout << "Previous: ";
         previous->printname();
-    } */
+    }*/
 
     cout << "Value: " << x << endl;
-
-    //cout << "Value: " << this->getInstance(x) <<endl;
     return forward()->pass(this->getInstance(x));
 }

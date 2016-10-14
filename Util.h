@@ -8,6 +8,7 @@
 #include <vector>
 #include <stack>
 #include <string>
+#include <string.h>
 #include <numeric>
 
 using namespace std;

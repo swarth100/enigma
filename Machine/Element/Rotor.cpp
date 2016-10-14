@@ -14,10 +14,11 @@ void Rotor::setMap(vector<int> vector) {
 }
 
 int Rotor::getInstance(int x) {
+    cout << "Rotation: " << rotation << endl;
     if (instance->getVerse() == Instance::Status::FORWARD) {
-        return mapForward->getMappedInt(x + rotation);
+        return mapForward->getMappedIntRot(x, rotation);
     } else {
-        return mapBackward->getMappedInt(x + rotation);
+        return mapBackward->getMappedIntRot(x, rotation);
     }
 }
 

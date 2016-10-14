@@ -24,7 +24,7 @@ void Machine::addRotor(vector<int> vector) {
 
     addElement(element);
 
-
+    addToRotors(rotor);
 }
 
 void Machine::addPlugboard(vector<int> vector) {

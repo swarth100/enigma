@@ -10,19 +10,32 @@ int main(int argc, char **argv)
 
     shared_ptr<Machine> enigma = make_shared<Machine>();
 
-    int input;
-    int result;
+    char* input = (char*) malloc(sizeof(char));
+    char* output = (char*) malloc(sizeof(char));
 
     cout << "Input: " << endl;
     cin >> input;
 
-    enigma->addPlugboard(parse("plugboards/V.pb"));
+    strcpy(output, input);
+
+    //enigma->addPlugboard(parse("plugboards/V.pb"));
+    enigma->addRotor(parse("rotors/II.rot"));
 
     enigma->assemble();
 
-    result = enigma->simulate(input);
+    int decIn;
+    int index = 0;
 
-    cout << "Result: " << result << endl;
+    while(input[index] != '\0') {
+        decIn = input[index] - 'a';
+        output[index] = (enigma->simulate(decIn) + 'a');
+        index++;
+    }
+
+    cout << "Result: " << output << endl;
+
+    free (input);
+    free (output);
 
     return 0;
 }
