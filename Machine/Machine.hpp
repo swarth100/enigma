@@ -12,13 +12,9 @@
 
 class Machine {
 public:
-    Machine();
-    char simulate(int);
+    Machine(int, char**);
 
-    void addRotor(vector<int>);
-    void addPlugboard(vector<int>);
-
-    void assemble();
+    char simulate(char);
 
 private:
     shared_ptr<Element> starter;
@@ -39,7 +35,9 @@ private:
 
     void addToRotors(shared_ptr<Rotor>);
 
-    char BASE_CHAR = 'A';
+    void addRotor(vector<int>);
+    void addPlugboard(vector<int>);
+    void assemble();
 };
 
 #endif

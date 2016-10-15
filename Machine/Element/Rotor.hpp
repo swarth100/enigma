@@ -24,7 +24,6 @@ public:
 private:
     shared_ptr<Mapper> mapForward;
     shared_ptr<Mapper> mapBackward;
-    shared_ptr<Instance> instance;
     shared_ptr<Rotor> nextRotor;
 
     int rotation;

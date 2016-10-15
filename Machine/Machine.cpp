@@ -1,17 +1,36 @@
 #include "Machine.hpp"
 
-Machine::Machine() {
+Machine::Machine(int argc, char** argv) {
     this->instance = make_shared<Instance>();
     this->starter = make_shared<Starter>(instance);
     this->current = starter;
 
     this->rotorChain = make_shared<Rotor>(instance);
     this->lastRotor = rotorChain;
+
+    int argInt = 1;
+    int maxArgc = argc-1;
+
+    addPlugboard(parse(argv[maxArgc]));
+
+    while (argInt < maxArgc) {
+        addRotor(parse(argv[argInt]));
+        argInt ++;
+    }
+
+    assemble();
 }
 
-char Machine::simulate(int x) {
+char Machine::simulate(char c) {
     int result;
-    result = starter->pass(x - BASE_CHAR);
+    int valueC = c - BASE_CHAR;
+
+    //If the Input is INVALID, exit
+    if (valueC < 0 || valueC > MAX_ALPHABET) {
+        exit (1);
+    }
+
+    result = starter->pass(valueC);
     rotate();
     return (result + BASE_CHAR);
 }
@@ -80,7 +99,6 @@ void Machine::rotate() {
     shared_ptr<Rotor> tmp = rotorChain->getNextRotor();
 
     while (tmp != NULL && tmp->rotate()) {
-        //cout << "Rotate LOOP" << endl;
         tmp = tmp->getNextRotor();
     }
 }

@@ -20,6 +20,8 @@ public:
 private:
     shared_ptr<Element> next;
     shared_ptr<Element> previous;
+
+protected:
     shared_ptr<Instance> instance;
 };
 

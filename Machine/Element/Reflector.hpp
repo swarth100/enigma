@@ -18,7 +18,6 @@ public:
 
 private:
     shared_ptr<Mapper> map;
-    shared_ptr<Instance> instance;
 };
 
 #endif

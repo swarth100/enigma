@@ -1,7 +1,5 @@
 #include "Util.h"
 
-int MAX_ALPHABET = 26;
-
 int mod(int num, int base) {
   int res = num % base;
   return res >= 0 ? res : res + base;
@@ -32,8 +30,6 @@ vector<int> parse(string path) {
     getline(cin, str);
 
     str += " ";
-    //cout << "- - - - -" << endl;
-    //cout << str << endl;
 
     while ((pos = str.find(delimiter)) != string::npos) {
         token = str.substr(0, pos);
@@ -50,8 +46,6 @@ vector<int> parse(string path) {
 
     //Reset to standard Input
     cin.rdbuf(cinBuffer);
-
-    //cout << "- - - - -" << endl;
 
     return result;
 }

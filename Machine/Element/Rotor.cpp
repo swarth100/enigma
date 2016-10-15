@@ -1,7 +1,6 @@
 #include "Rotor.hpp"
 
 Rotor::Rotor(shared_ptr<Instance> instance): Element(instance) {
-    this->instance = instance;
     this->mapForward = make_shared<Mapper>();
     this->mapBackward = make_shared<Mapper>();
 

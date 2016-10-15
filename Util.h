@@ -13,6 +13,9 @@
 
 using namespace std;
 
+int const MAX_ALPHABET = 26;
+char const BASE_CHAR = 'A';
+
 int mod(int, int);
 
 vector<int> parse(string);

@@ -14,9 +14,6 @@ public:
     int getInstance(int);
 
     void printname();
-
-private:
-    shared_ptr<Instance> instance;
 };
 
 #endif

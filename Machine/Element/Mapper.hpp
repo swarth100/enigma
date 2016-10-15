@@ -15,8 +15,9 @@ public:
     void populateReflector();
 
 private:
-    int const MAX_ALPHABET = 26;
     vector<int> mapping;
+
+    //int const MAX_ALPHABET = 26;
 };
 
 #endif
