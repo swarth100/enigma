@@ -13,7 +13,7 @@
 class Machine {
 public:
     Machine();
-    int simulate(int);
+    char simulate(int);
 
     void addRotor(vector<int>);
     void addPlugboard(vector<int>);
@@ -38,6 +38,8 @@ private:
     void addToPrevious(shared_ptr<Element>);
 
     void addToRotors(shared_ptr<Rotor>);
+
+    char BASE_CHAR = 'A';
 };
 
 #endif

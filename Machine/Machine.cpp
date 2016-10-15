@@ -9,16 +9,11 @@ Machine::Machine() {
     this->lastRotor = rotorChain;
 }
 
-int Machine::simulate(int x) {
+char Machine::simulate(int x) {
     int result;
-    if (x >= 0 && x <= 26)
-    {
-        result = starter->pass(x);
-        rotate();
-    } else {
-        result = x;
-    }
-    return result;
+    result = starter->pass(x - BASE_CHAR);
+    rotate();
+    return (result + BASE_CHAR);
 }
 
 void Machine::addRotor(vector<int> vector) {

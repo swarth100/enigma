@@ -10,18 +10,6 @@ int main(int argc, char **argv)
 
     shared_ptr<Machine> enigma = make_shared<Machine>();
 
-    string input = "";
-    string tmp = "";
-    string output;
-
-    //cout << "Input: " << endl;
-    while (getline(cin, tmp)) {
-        input += tmp;
-        input += "\n";
-    }
-
-    output = input;
-
     int argInt = 1;
     int maxArgc = argc-1;
 
@@ -34,18 +22,16 @@ int main(int argc, char **argv)
 
     enigma->assemble();
 
-    int decIn;
     int index = 0;
-    //cout << input << endl;
 
-    while(input[index] != '\0') {
-        decIn = input[index] - 'A';
-        output[index] = (enigma->simulate(decIn) + 'A');
-        //cout << input[index] << output[index] << endl;
+    char input;
+
+    while(cin>>input) {
+        cout << enigma->simulate(input);
         index++;
     }
 
-    cout << output << endl;
+    cout << endl;
 
     return 0;
 }
