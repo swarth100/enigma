@@ -11,10 +11,14 @@ int main(int argc, char **argv)
     shared_ptr<Machine> enigma = make_shared<Machine>();
 
     string input = "";
+    string tmp = "";
     string output;
 
     //cout << "Input: " << endl;
-    cin >> input;
+    while (getline(cin, tmp)) {
+        input += tmp;
+        input += "\n";
+    }
 
     output = input;
 
@@ -32,10 +36,12 @@ int main(int argc, char **argv)
 
     int decIn;
     int index = 0;
+    //cout << input << endl;
 
     while(input[index] != '\0') {
         decIn = input[index] - 'A';
         output[index] = (enigma->simulate(decIn) + 'A');
+        //cout << input[index] << output[index] << endl;
         index++;
     }
 

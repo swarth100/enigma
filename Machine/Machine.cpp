@@ -10,8 +10,14 @@ Machine::Machine() {
 }
 
 int Machine::simulate(int x) {
-    int result = starter->pass(x);
-    rotate();
+    int result;
+    if (x >= 0 && x <= 26)
+    {
+        result = starter->pass(x);
+        rotate();
+    } else {
+        result = x;
+    }
     return result;
 }
 
