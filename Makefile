@@ -8,10 +8,10 @@ PROG = enigma
 
 .PHONY : all clean
 
-all: $(PROG)
+all: clean $(PROG)
 
 $(PROG): $(OBJS)
 	$(CC) $(CFLAGS) $(COBJS) $(CPPOBJS) -o $@
 
 clean:
-	rm -f *~ *.o $(shell find -name '*.gch') $(PROG)
+	rm -f *~ $(shell find -name '*.gch') $(PROG)
