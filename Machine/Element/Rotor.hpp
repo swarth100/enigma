@@ -1,7 +1,7 @@
 #ifndef ROTOR_HPP
 #define ROTOR_HPP
 
-#include "../../Util.h"
+#include "../../Util.hpp"
 #include "../Instance.hpp"
 #include "Mapper.hpp"
 #include "Element.hpp"

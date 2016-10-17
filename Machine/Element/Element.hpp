@@ -1,7 +1,7 @@
 #ifndef ELEMENT_HPP
 #define ELEMENT_HPP
 
-#include "../../Util.h"
+#include "../../Util.hpp"
 #include "../Instance.hpp"
 
 class Element {

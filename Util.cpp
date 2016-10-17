@@ -1,4 +1,4 @@
-#include "Util.h"
+#include "Util.hpp"
 
 int mod(int num, int base) {
   int res = num % base;
@@ -13,6 +13,7 @@ vector<int> parse(string path) {
     ifstream inStream(filePath);
 
     if (inStream.fail()) {
+        cout << "ERROR: Invalid File Input: " << path << endl;
         exit (1);
     }
 

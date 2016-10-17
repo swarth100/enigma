@@ -1,7 +1,7 @@
 #ifndef INSTANCE_HPP
 #define INSTANCE_HPP
 
-#include "../Util.h"
+#include "../Util.hpp"
 
 class Instance{
 public:

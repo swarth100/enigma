@@ -1,7 +1,7 @@
 #ifndef MACHINE_HPP
 #define MACHINE_HPP
 
-#include "../Util.h"
+#include "../Util.hpp"
 #include "Instance.hpp"
 #include "Element/Element.hpp"
 #include "Element/Rotor.hpp"

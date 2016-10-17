@@ -1,7 +1,7 @@
 #ifndef MAPPER_HPP
 #define MAPPER_HPP
 
-#include "../../Util.h"
+#include "../../Util.hpp"
 
 class Mapper{
 public:

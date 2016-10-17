@@ -1,17 +1,14 @@
-CC = g++
-CFLAGS = -Wall -Werror -pedantic -std=c++11
+CXXFLAGS = -Wall -Werror -pedantic -std=c++11
 CPPSOURCES = $(shell find -name '*.cpp')
-CSOURCES = $(shell find -name '*.c')
-CPPOBJS = $(CPPSOURCES: .cpp=.o)
-COBJS = $(CSOURCES: .c=.o)
+CPPOBJS = $(patsubst %.cpp,%.o,$(CPPSOURCES))
 PROG = enigma
 
 .PHONY : all clean
 
-all: clean $(PROG)
+all: $(PROG)
 
-$(PROG): $(OBJS)
-	$(CC) $(CFLAGS) $(COBJS) $(CPPOBJS) -o $@
+$(PROG): $(CPPOBJS)
+	$(CXX) $(CPPOBJS) -o $@
 
 clean:
-	rm -f *~ $(shell find -name '*.gch') $(PROG)
+	rm -f *~ $(shell find -name '*.gch') $(shell find -name '*.o') $(PROG)
