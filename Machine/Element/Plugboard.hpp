@@ -10,8 +10,10 @@ class Plugboard: public Element{
 public:
     Plugboard(shared_ptr<Instance>);
 
+    //Encripts the given input int.
     int getInstance(int);
 
+    //Sets the vector<int> used by the Plugboard for encription.
     void setMap(vector<int>);
 
     void printname();
