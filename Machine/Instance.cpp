@@ -17,6 +17,4 @@ void Instance::changeVerse() {
 
 Instance::Status Instance::getVerse() {
     return verse;
-    //BOB
-    //BOBBY
 }

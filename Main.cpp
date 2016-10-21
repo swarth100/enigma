@@ -17,7 +17,7 @@ using namespace std;
 //                        +----------+-----------+
 //                                   |
 //                                   |
-//                                   V
+//                                   v
 //                                Mapper
 //
 //Machine:
