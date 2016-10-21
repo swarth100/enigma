@@ -12,7 +12,7 @@ Machine::Machine(int argc, char** argv) {
     int maxArgc = argc-1;
 
     if (maxArgc <= 0) {
-        cout << "ERROR: No Input Files" << endl;
+        cerr << "ERROR: No Input Files" << endl;
         exit (1);
     }
 
@@ -33,7 +33,7 @@ char Machine::simulate(char c) {
     //If the Input is INVALID, exit
     if (valueC < 0 || valueC > MAX_ALPHABET) {
         cout << endl;
-        cout << "ERROR: Invalid Input Character: " << c << endl;
+        cerr << "ERROR: Invalid Input Character: " << c << endl;
         exit (1);
     }
 
